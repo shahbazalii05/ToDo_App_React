@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
+import Task from "./Task";
 
 const getLocalData = () => {
   const lists = localStorage.getItem("mytodolist");
@@ -38,11 +39,22 @@ const todo = () => {
       const myNewInputData = {
         id: new Date().getTime().toString(),
         name: inputdata,
+        completed: false,
+        date: new Date()
       };
       setItems([...items, myNewInputData]);
       setInputData("");
       setToggleButton(false);
     }
+  };
+  const changeStatus = (id) => {
+    const updatedItems = items.map((curElem) => {
+      if (curElem.id === id) {
+        return { ...curElem, completed: !curElem.completed };
+      }
+      return curElem;
+    });
+    setItems(updatedItems);
   };
   const deleteitem = (id) => {
     const updateitems = items.filter((curElem) => {
@@ -86,25 +98,7 @@ const todo = () => {
               <i className="fa-solid fa-plus add-btn fa" onClick={addItems}></i>
             )}
           </div>
-          <div className="showItems ">
-            {items.map((curElem, index) => {
-              return (
-                <div className="eachItem " key={index}>
-                  <h3>{curElem.name}</h3>
-                  <div className="todo-btn">
-                    <i
-                      className="far-solid fa-edit add-btn far"
-                      onClick={() => updateitem(curElem.id)}
-                    ></i>
-                    <i
-                      className="far-solid fa-trash-alt add-btn far"
-                      onClick={() => deleteitem(curElem.id)}
-                    ></i>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <Task items={items} changeStatus={changeStatus} updateitem={updateitem} deleteitem={deleteitem} />
           <div className="show-Items">
             <button
               className="btn effect04"
