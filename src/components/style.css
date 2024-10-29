@@ -26,6 +26,8 @@ html {
   margin-top: 12rem;
 }
 
+
+
 .child-div figure img {
   width: 10rem;
   height: 8rem;
@@ -40,7 +42,7 @@ html {
 
 input {
   /* display: block; */
-  min-width: 40rem;
+  min-width: 50%;
   height: 3.4rem;
   padding: 2rem 1.2rem;
   font-size: 1.8rem;
@@ -111,6 +113,7 @@ input:focus {
   margin-top: 3rem;
   background: #a4a2a2;
   padding: 20px;
+  overflow-x: auto;
 }
 
 .showItems {
@@ -275,4 +278,10 @@ input:focus {
   font-size: 2rem;
   color: white;
   font-weight: bolder;
+}
+
+@media (max-width: 400px) {
+  .child-div {
+    width: 90%;
+  }
 }
