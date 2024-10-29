@@ -24,6 +24,9 @@ A simple and interactive ToDo application built with React that helps users keep
 - **JavaScript** - Core programming language for logic implementation
 - **CSS** - Styling the application layout
 
+## Live Link
+  https://todo-app-jsreact.netlify.app/
+
 ## Desktop view
 ![image](https://github.com/user-attachments/assets/da74ba32-5db3-4bba-a3b5-86e537eaeca0)
 
